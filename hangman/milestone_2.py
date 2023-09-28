@@ -11,8 +11,16 @@ print(word)
 #user input: guess
 guess = input('Enter a letter: ')
 
-#checks if guess is valid
-if guess.isalpha() == True and len(guess) == 1:
-    print('Good guess!')
-else:
-    print('Oops! that is not a valid input.')
+def check_input_valid(input):
+    '''
+    This function checks if the input is alphabetical and that it only contains one letter.
+    
+    Args:
+        input: str
+            String containing the user input. Should be a single letter.
+    '''
+    if input.isalpha() == True and len(input) == 1:
+        print('Good guess!')
+    else:
+        print('Oops! that is not a valid input.')
+
