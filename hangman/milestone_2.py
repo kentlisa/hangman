@@ -21,6 +21,8 @@ def check_input_valid(input):
     '''
     if input.isalpha() == True and len(input) == 1:
         print('Good guess!')
+        return True
     else:
         print('Oops! that is not a valid input.')
+        return False
 
