@@ -1,4 +1,11 @@
 # Hangman
-Hangman is a classic game in which a player thinks of a word and the other player tries to guess that word within a certain amount of attempts.
+This is a revised version of the classic game of hangman. This one-player game allows the user to play against the computer, where the computer thinks of a word and the user can try to outwit it. The user enters one letter at a time, until they have guessed the chosen word, or lost all their lives.
+This game was made in Python.
 
-This is an implementation of the Hangman game, where the computer thinks of a word and the user tries to guess it. 
+## Useage Instructions
+Simply download the file, run it in your terminal, and enjoy the game!
+
+## File Structure
+.
+├── hangman_Template.py
+└── milestone_2.py
