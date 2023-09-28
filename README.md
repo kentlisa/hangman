@@ -13,12 +13,12 @@ Simply download the game file, run it in your terminal, and enjoy the game!
 ### 3.1 Stage 1
 
 - The first stage in this project is obtaining user input, and checking if it's valid. The function used for this is shown below.
-![Screenshot of .py file showing the function that asks for user input, then checks if its a single letter.](/hangman/ask_for_input_screenshot.png)
+![Screenshot of .py file showing the function that asks for user input, then checks if its a single letter.](ask_for_input_screenshot.png)
 - The user input is assigned as the **guess** variable to be parsed throughout the functions. 
 - The if statement checks whether the **guess** is alphabetical, and that it is only one letter.
 - If the input does not meet this criteria, the user is prompted to enter a new input.
 
 - If the input is valid, the **check_guess()** function is called. The code for this is shown below.
-![Screenshot of .py file showing the function that converts the letter to lower case, then checks if the letter is in the word.](/hangman/check_guess_screenshot.png)
+!(check_guess_screenshot.png)
 - The word is chosen at random from a list of given words and assigned to the **word** variable.
 - The strings are printed to easily and directly show the user if their guess is correct.
