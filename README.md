@@ -1,7 +1,6 @@
 # Hangman
 
 This is a revised version of the classic game of hangman. This one-player game allows the user to play against the computer, where the computer thinks of a word and the user can try to outwit it. The user enters one letter at a time, until they have guessed the chosen word, or lost all their lives.
-This game was made in Python.
 
 ## 1. Aims
 
@@ -13,19 +12,37 @@ Simply download the game file, run it in your terminal, and enjoy the game!
 
 ## 3. The Code
 
-### 3.1 Stage 1
+This game was created using OOP in Python. The Hangman class and its attributed and methods are detailed below.
 
-- The first stage in this project is obtaining user input, and checking if it's valid. The function used for this is shown below.
+### 3.1. Initialising the class
 
-![Screenshot of .py file showing the function that asks for user input, then checks if its a single letter.](ask_for_input_screenshot.png)
+The class has six attributes, shown below.
 
-- The user input is assigned as the **guess** variable to be parsed throughout the functions.
+![Screenshot of .py file showing the instance attributes.](params_screenshot.png)
+
+- **word_list**: the list of words that might be chosen by the hangman
+- **word**: the chosen hangman word
+- **word_guessed**: a list of _ as placeholders for the correctly guessed letters
+- **num_letters**: numbers of letters left to guess (initially the number of unique letters in **word**)
+- **num_lives**: number of lives (default = 5)
+- **list_of_guesses**: empty list for guessed letters to be stored in
+
+### 3.2. ask_for_input
+
+- The first stage in this game is obtaining user input, and checking if it's valid. The method used for this is shown below.
+
+![Screenshot of .py file showing the method that asks for user input, then checks if its a single letter and if the letter has already been guessed. Once it has a valid input, it calls the check_guess method, then appends the letter to the list_of_guesses.](ask_for_input_screenshot.png)
+
+- The user input is assigned to the **guess** variable to be parsed throughout the functions.
 - The if statement checks whether the **guess** is alphabetical, and that it is only one letter.
-- If the input does not meet this criteria, the user is prompted to enter a new input.
+- If the input does not meet this criteria, or the user has already tried this letter, the user is prompted to enter a new input.
+- If the guess passes both checks,
+the **check_guess()** method is called. The code for this is shown below.
 
-- If the input is valid, the **check_guess()** function is called. The code for this is shown below.
+### 3.3. check_guess
 
-![Screenshot of .py file showing the function that converts the letter to lower case, then checks if the letter is in the word.](check_guess_screenshot.png)
+![Screenshot of .py file showing the method that converts the letter to lower case, then checks if the letter is in the word.](check_guess_screenshot.png)
 
-- The word is chosen at random from a list of given words and assigned to the **word** variable.
-- The strings are printed to easily and directly show the user if their guess is correct.
+- The guess is convereted to lower case
+- If the guess is correct, the letter is added to the word_guessed in place
+- If the guess is incorrect, the player loses a life
