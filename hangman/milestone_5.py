@@ -1,8 +1,5 @@
 import random
 
-#define list of words to choose from
-word_list = ['peach', 'pineapple', 'apple', 'banana', 'strawberry']
-
 class Hangman:
     '''
     This class is used to play a game of hangman.
@@ -40,7 +37,7 @@ class Hangman:
         self.word_list = word_list
         self.word = random.choice(self.word_list)
         self.word_guessed = len(self.word) * ['_']
-        self.num_letters = len(set(self.word) - {letter for letter in self.word_guessed if letter.isalpha})
+        self.num_letters = len(set(self.word))
         self.num_lives = num_lives
         self.list_of_guesses = []
 
@@ -60,11 +57,14 @@ class Hangman:
         guess = guess.lower()
         if guess in self.word:
             print(f'Good guess! {guess} is in the word.')
-            for letter in self.word:
-                if guess == letter:
-                    index = self.word.index(guess)
+            #iterate through letters in word
+            for index in range(len(self.word)):
+                #appending letter to word_guessed
+                if guess == self.word[index]:
                     self.word_guessed[index] = guess
             self.num_letters -= 1
+            print(self.word_guessed)
+
         else:
             print(f'Sorry, {guess} is not in the word.')
             self.num_lives -= 1
@@ -86,13 +86,42 @@ class Hangman:
         while True:
             guess = input('Enter a letter: ')
             if guess.isalpha() == False or len(guess) != 1:
-               print('Invalid letter. Please, enter a single alphabetical character.') 
+               print('Invalid letter. Please, enter a single alphabetical character.')
+               continue
             elif guess in self.list_of_guesses:
                 print('You already tried that letter!')
+                continue
             else:
                 self.check_guess(guess)
                 self.list_of_guesses.append(guess)
+                break
 
-#create instance of class, initiate game
-hangman1 = Hangman(word_list)
-hangman1.ask_for_input()
+def play_game(word_list):
+    '''
+    This function initiates gameplay.
+    
+    Parameters
+    ----------
+    word_list : list
+        List of words that the hangman game can choose from.
+    
+    Returns
+    -------
+    None
+    '''
+    game = Hangman(word_list)
+    while True:
+        if game.num_lives == 0:
+            print(f'You lost! The word was {game.word}')
+            break
+        elif game.num_letters > 0:
+            game.ask_for_input()
+            continue
+        elif game.num_lives > 0 and game.num_letters == 0:
+            print(f'Congratulations, you won the game! The word is {game.word}!')
+            break
+
+#define list of words to choose from
+word_list = ['apple', 'pineapple', 'nectarine', 'lemon', 'orange']
+#initiate gameplay
+play_game(word_list)

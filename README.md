@@ -2,13 +2,24 @@
 
 This is a revised version of the classic game of hangman. This one-player game allows the user to play against the computer, where the computer thinks of a word and the user can try to outwit it. The user enters one letter at a time, until they have guessed the chosen word, or lost all their lives.
 
+## Table of Contents
+1. Aims
+2. Useage Instructions
+3. The Code
+    1. Initialising the class
+    2. check_guess
+    3. ask_for_input
+    4. play_game
+
+
 ## 1. Aims
 
-This project was designed to test my new skills in python and git. I was tasked with importing modules, writing code to obtain user input, and writing several functions with different purposes. These functions are outlined in Section 3.
+This project was designed to test my new skills in python and git. I was tasked with importing modules, writing code to obtain user input, and writing several functions and methods with different purposes. I also put into practise new skills in OOP, by creating the Hangman class. The code behind these features are outlined in Section 3.
+
 
 ## 2. Useage Instructions
 
-Simply download the game file, run it in your terminal, and enjoy the game!
+Ensure that you have Python3 installed. Simply download the **milestone_5.py** file, run it in your terminal, and enjoy the game!
 
 ## 3. The Code
 
@@ -44,5 +55,17 @@ the **check_guess()** method is called. The code for this is shown below.
 ![Screenshot of .py file showing the method that converts the letter to lower case, then checks if the letter is in the word.](check_guess_screenshot.png)
 
 - The guess is convereted to lower case
-- If the guess is correct, the letter is added to the word_guessed in place
+- If the guess is correct, the letter is added to the **word_guessed** in place
 - If the guess is incorrect, the player loses a life
+
+
+### 3.4. play_game
+
+- The following function initiates and facilitates gameplay
+
+![Screenshot of the .py file showing the function that initiates and facilitates gameplay.](play_game_screenshot.png)
+
+- The while loop is set to always **True** so that the game runs continuously
+- The if block runs when the player has run out of lives, and ends the game with the **break** statement
+- The first elif blocks runs initially and continues as long as the game is still running
+- The second elif block runs when the player has won the game and ends the game with the **break** statement
